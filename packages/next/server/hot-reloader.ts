@@ -357,7 +357,10 @@ export default class HotReloader {
   }
 
   async prepareBuildTools(multiCompiler: webpack.MultiCompiler) {
-    const tsConfigPath = join(this.dir, 'tsconfig.json')
+    const tsConfigFileName =
+      (this.config.typescript && this.config.typescript.tsConfigFileName) ||
+      'tsconfig.json'
+    const tsConfigPath = join(this.dir, tsConfigFileName)
     const useTypeScript = await fileExists(tsConfigPath)
     const ignoreTypeScriptErrors =
       this.config.typescript && this.config.typescript.ignoreDevErrors

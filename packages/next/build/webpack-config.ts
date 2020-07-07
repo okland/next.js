@@ -225,7 +225,9 @@ export default async function getBaseWebpackConfig(
   try {
     typeScriptPath = resolveRequest('typescript', `${dir}/`)
   } catch (_) {}
-  const tsConfigPath = path.join(dir, 'tsconfig.json')
+  const tsConfigFileName =
+    config.typescript?.tsConfigFileName || 'tsconfig.json'
+  const tsConfigPath = path.join(dir, tsConfigFileName)
   const useTypeScript = Boolean(
     typeScriptPath && (await fileExists(tsConfigPath))
   )

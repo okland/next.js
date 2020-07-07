@@ -95,6 +95,18 @@ export default (req: NextApiRequest, res: NextApiResponse<Data>) => {
 }
 ```
 
+## Custom tsconfig.json file name
+
+If you have custom tsconfig file, for example tsconfig.server.json, you can set it in your next.config.json under the key typescript.tsConfigFileName
+
+```json
+{
+  "typescript": {
+    "tsConfigFileName": "tsconfig.server.json"
+  }
+}
+```
+
 ## Custom `App`
 
 If you have a [custom `App` ](/docs/advanced-features/custom-app), you can use the built-in type `AppProps` and change file name to `./pages/_app.tsx` like so:
